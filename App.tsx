@@ -9,7 +9,6 @@ import {ThemeProvider} from '@shopify/restyle';
 
 import {Text} from '@components';
 import {theme} from '@theme';
-
 function App(): React.JSX.Element {
   return (
     <ThemeProvider theme={theme}>
