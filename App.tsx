@@ -7,7 +7,7 @@ import {SafeAreaView} from 'react-native';
 
 import {ThemeProvider} from '@shopify/restyle';
 
-import {Icon, Text} from '@components';
+import {Button, Icon, Text} from '@components';
 import {theme} from '@theme';
 function App(): React.JSX.Element {
   return (
@@ -18,6 +18,8 @@ function App(): React.JSX.Element {
         </Text>
 
         <Icon name="menu" size={24} />
+
+        <Button title="Criar minha conta" />
       </SafeAreaView>
     </ThemeProvider>
   );
