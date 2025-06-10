@@ -60,37 +60,34 @@ export const theme = createTheme({
   textVariants: {
     defaults: {
       color: 'textPrimary',
-      fontFamily: 'LatoRegular',
+      fontFamily: 'Lato Regular',
     },
     textXl: {
       fontSize: 24,
       lineHeight: 26,
-      fontFamily: 'LatoBold',
+      fontFamily: 'Lato Bold',
     },
     textLg: {
       fontSize: 20,
       lineHeight: 22,
-      fontFamily: 'LatoBold',
+      fontFamily: 'Lato Bold',
     },
     headingMd: {
       fontSize: 16,
       lineHeight: 18,
-      fontFamily: 'LatoRegular',
     },
     textSm: {
       fontSize: 14,
       lineHeight: 16,
-      fontFamily: 'LatoRegular',
     },
     textXs: {
       fontSize: 12,
       lineHeight: 14,
-      fontFamily: 'LatoRegular',
     },
     textXxs: {
       fontSize: 10,
       lineHeight: 12,
-      fontFamily: 'LatoBold',
+      fontFamily: 'Lato Bold',
     },
   },
 });
