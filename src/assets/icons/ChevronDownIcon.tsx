@@ -1,0 +1,18 @@
+import React from 'react';
+
+import Svg, {Path} from 'react-native-svg';
+
+import {BaseIconProps} from '@components';
+
+export function ChevronDownIcon({size = 32, color = 'black'}: BaseIconProps) {
+  return (
+    <Svg width={size} height={size} viewBox="0 0 32 32" fill="none">
+      <Path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M7.05721 11.0573C7.57791 10.5366 8.42213 10.5366 8.94283 11.0573L16 18.1145L23.0572 11.0573C23.5779 10.5366 24.4221 10.5366 24.9428 11.0573C25.4635 11.578 25.4635 12.4222 24.9428 12.9429L16.9428 20.9429C16.4221 21.4636 15.5779 21.4636 15.0572 20.9429L7.05721 12.9429C6.53651 12.4222 6.53651 11.578 7.05721 11.0573Z"
+        fill={color}
+      />
+    </Svg>
+  );
+}

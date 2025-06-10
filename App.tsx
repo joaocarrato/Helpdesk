@@ -7,7 +7,7 @@ import {SafeAreaView} from 'react-native';
 
 import {ThemeProvider} from '@shopify/restyle';
 
-import {Text} from '@components';
+import {Icon, Text} from '@components';
 import {theme} from '@theme';
 function App(): React.JSX.Element {
   return (
@@ -16,6 +16,8 @@ function App(): React.JSX.Element {
         <Text variant="headingMd">
           Whereas disregard and contempt for human rights have resulted
         </Text>
+
+        <Icon name="menu" size={24} />
       </SafeAreaView>
     </ThemeProvider>
   );
