@@ -2,14 +2,16 @@ import React from 'react';
 
 import {LogoIconDark} from '@brand';
 
-import {Box, Button, GreyBox, Text, TextInput} from '@components';
-
-import {Container} from '../components/Container';
+import {Box, Button, GreyBox, Text, TextInput, Container} from '@components';
 
 export function LoginScreen() {
   return (
     <Container>
-      <Box flexDirection="row" alignItems="center" alignSelf="center" mb="s24">
+      <Box
+        flexDirection="row"
+        alignItems="center"
+        justifyContent="center"
+        mb="s24">
         <LogoIconDark size={40} />
         <Text ml="s12" variant="textXl" color="primary">
           HelpDesk
