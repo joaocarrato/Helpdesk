@@ -5,3 +5,4 @@ export * from './Button/Button';
 export * from './ActivityIndicator/ActivityIndicator';
 export * from './Screen/Screen';
 export * from './TextInput/TextInput';
+export * from './GreyBox/GreyBox';
