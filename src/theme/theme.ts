@@ -53,12 +53,43 @@ export const theme = createTheme({
     s56: 56,
   },
   borderRadii: {
+    s5: 5,
     s8: 8,
     s12: 12,
     s16: 16,
   },
   textVariants: {
-    defaults: {},
+    defaults: {
+      color: 'textPrimary',
+      fontFamily: 'Lato Regular',
+    },
+    textXl: {
+      fontSize: 24,
+      lineHeight: 26,
+      fontFamily: 'Lato Bold',
+    },
+    textLg: {
+      fontSize: 20,
+      lineHeight: 22,
+      fontFamily: 'Lato Bold',
+    },
+    headingMd: {
+      fontSize: 16,
+      lineHeight: 18,
+    },
+    textSm: {
+      fontSize: 14,
+      lineHeight: 16,
+    },
+    textXs: {
+      fontSize: 12,
+      lineHeight: 14,
+    },
+    textXxs: {
+      fontSize: 10,
+      lineHeight: 12,
+      fontFamily: 'Lato Bold',
+    },
   },
 });
 
