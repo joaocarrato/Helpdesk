@@ -1,22 +1,36 @@
 import React from 'react';
 
-import {LogoIconDark} from '@brand';
+import {zodResolver} from '@hookform/resolvers/zod';
+import {useForm} from 'react-hook-form';
 
-import {Box, Button, GreyBox, Text, TextInput, Container} from '@components';
+import {Button, GreyBox, Text, Container, FormInput} from '@components';
+import {AuthStackScreenProps} from '@routes';
 
-export function LoginScreen() {
+import {AuthHeader} from '../components/AuthHeader';
+
+import {LoginSchemaType, loginScreenSchema} from './loginScreenSchema';
+
+export function LoginScreen({navigation}: AuthStackScreenProps<'LoginScreen'>) {
+  const {control, handleSubmit, formState} = useForm<LoginSchemaType>({
+    resolver: zodResolver(loginScreenSchema),
+    defaultValues: {
+      email: '',
+      password: '',
+    },
+    mode: 'onChange',
+  });
+
+  function onSubmit(data: LoginSchemaType) {
+    console.log(data);
+  }
+
+  function navigateToSignUpScreen() {
+    navigation.navigate('SignUpScreen');
+  }
+
   return (
     <Container>
-      <Box
-        flexDirection="row"
-        alignItems="center"
-        justifyContent="center"
-        mb="s24">
-        <LogoIconDark size={40} />
-        <Text ml="s12" variant="textXl" color="primary">
-          HelpDesk
-        </Text>
-      </Box>
+      <AuthHeader />
 
       <GreyBox mb="s12">
         <Text variant="textLg">Acesse o portal</Text>
@@ -24,20 +38,29 @@ export function LoginScreen() {
           Entre usando seu e-mail e senha cadastrados
         </Text>
 
-        <TextInput
-          label="E-MAIL"
+        <FormInput
+          control={control}
+          name="email"
+          label="e-mail"
           placeholder="exemplo@mail.com"
           boxProps={{mb: 's16'}}
         />
 
-        <TextInput
+        <FormInput
+          control={control}
+          name="password"
           label="SENHA"
           placeholder="Digite sua senha"
           secureTextEntry
           boxProps={{mb: 's32'}}
         />
 
-        <Button title="Entrar" />
+        <Button
+          title="Entrar"
+          disabled={!formState.isValid}
+          loading={formState.isLoading}
+          onPress={handleSubmit(onSubmit)}
+        />
       </GreyBox>
 
       <GreyBox>
@@ -48,7 +71,11 @@ export function LoginScreen() {
           Cadastre agora mesmo
         </Text>
 
-        <Button title="Criar conta" preset="secondary" />
+        <Button
+          title="Criar conta"
+          preset="secondary"
+          onPress={navigateToSignUpScreen}
+        />
       </GreyBox>
     </Container>
   );
