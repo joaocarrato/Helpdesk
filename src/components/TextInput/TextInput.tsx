@@ -14,7 +14,7 @@ import {Box, BoxProps} from '../Box/Box';
 import {Icon} from '../Icon/Icon';
 import {Text} from '../Text/Text';
 
-type TextInputProps = {
+export type TextInputProps = {
   label: string;
   helperText?: string;
   errorMessage?: string;

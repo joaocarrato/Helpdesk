@@ -7,23 +7,13 @@ import React from 'react';
 import {ThemeProvider} from '@shopify/restyle';
 import {SafeAreaProvider} from 'react-native-safe-area-context';
 
-import {Button, Icon, Screen, Text, TextInput} from '@components';
+import {Routes} from '@routes';
 import {theme} from '@theme';
 function App(): React.JSX.Element {
   return (
     <SafeAreaProvider>
       <ThemeProvider theme={theme}>
-        <Screen canGoBack>
-          <Text variant="headingMd">
-            Whereas disregard and contempt for human rights have resulted
-          </Text>
-
-          <Icon name="menu" size={24} />
-
-          <Button title="Criar minha conta" mb="s12" />
-
-          <TextInput label="Nome" placeholder="Digite seu nome" />
-        </Screen>
+        <Routes />
       </ThemeProvider>
     </SafeAreaProvider>
   );

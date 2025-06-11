@@ -1,4 +1,9 @@
-import {TouchableOpacity, TouchableOpacityProps} from 'react-native';
+import {
+  ScrollView,
+  ScrollViewProps,
+  TouchableOpacity,
+  TouchableOpacityProps,
+} from 'react-native';
 
 import {
   backgroundColor,
@@ -30,7 +35,6 @@ type RestyleTypes = BackgroundColorProps<Theme> &
   BorderProps<Theme>;
 
 export type TouchableOpacityBoxProps = RestyleTypes & TouchableOpacityProps;
-
 export const TouchableOpacityBox = createRestyleComponent<
   TouchableOpacityBoxProps,
   Theme
@@ -44,4 +48,17 @@ export const TouchableOpacityBox = createRestyleComponent<
     border,
   ],
   TouchableOpacity,
+);
+
+export type ScrollViewBoxProps = ScrollViewProps & RestyleTypes;
+export const ScrollViewBox = createRestyleComponent<ScrollViewBoxProps, Theme>(
+  [
+    backgroundColor,
+    backgroundColorShorthand,
+    spacing,
+    spacingShorthand,
+    layout,
+    border,
+  ],
+  ScrollView,
 );

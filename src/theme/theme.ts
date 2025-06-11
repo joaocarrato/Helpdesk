@@ -55,13 +55,17 @@ export const theme = createTheme({
   borderRadii: {
     s5: 5,
     s8: 8,
+    s10: 10,
     s12: 12,
     s16: 16,
+    s35: 35,
   },
   textVariants: {
     defaults: {
       color: 'textPrimary',
       fontFamily: 'Lato Regular',
+      fontSize: 16,
+      lineHeight: 18,
     },
     textXl: {
       fontSize: 24,
