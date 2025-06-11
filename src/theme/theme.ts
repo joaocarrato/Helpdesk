@@ -62,6 +62,8 @@ export const theme = createTheme({
     defaults: {
       color: 'textPrimary',
       fontFamily: 'Lato Regular',
+      fontSize: 16,
+      lineHeight: 18,
     },
     textXl: {
       fontSize: 24,
