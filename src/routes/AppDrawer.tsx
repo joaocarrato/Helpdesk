@@ -5,7 +5,7 @@ import {
   DrawerContentComponentProps,
 } from '@react-navigation/drawer';
 
-import {Icon} from '@components';
+import {Icon, IconProps} from '@components';
 import {useAppTheme} from '@hooks';
 import {
   CustomersScreen,
@@ -37,6 +37,18 @@ export function AppDrawer() {
     return <DrawerHeader />;
   }
 
+  function drawerIcon({
+    focused,
+    iconName,
+  }: {
+    focused: boolean;
+    iconName: IconProps['name'];
+  }) {
+    return (
+      <Icon name={iconName} size={20} color={focused ? 'gray600' : 'gray400'} />
+    );
+  }
+
   return (
     <Drawer.Navigator
       initialRouteName="TicketScreen"
@@ -64,13 +76,8 @@ export function AppDrawer() {
         component={TicketScreen}
         options={{
           drawerLabel: 'Chamados',
-          drawerIcon: ({focused}) => (
-            <Icon
-              name="clipboard"
-              size={20}
-              color={focused ? 'gray600' : 'gray400'}
-            />
-          ),
+          drawerIcon: ({focused}) =>
+            drawerIcon({focused: focused, iconName: 'clipboard'}),
         }}
       />
       <Drawer.Screen
@@ -78,13 +85,8 @@ export function AppDrawer() {
         component={TechnicianScreen}
         options={{
           drawerLabel: 'Técnicos',
-          drawerIcon: ({focused}) => (
-            <Icon
-              name="users"
-              size={20}
-              color={focused ? 'gray600' : 'gray400'}
-            />
-          ),
+          drawerIcon: ({focused}) =>
+            drawerIcon({focused: focused, iconName: 'users'}),
         }}
       />
       <Drawer.Screen
@@ -92,13 +94,8 @@ export function AppDrawer() {
         component={CustomersScreen}
         options={{
           drawerLabel: 'Clientes',
-          drawerIcon: ({focused}) => (
-            <Icon
-              name="briefcase"
-              size={20}
-              color={focused ? 'gray600' : 'gray400'}
-            />
-          ),
+          drawerIcon: ({focused}) =>
+            drawerIcon({focused: focused, iconName: 'briefcase'}),
         }}
       />
       <Drawer.Screen
@@ -106,13 +103,8 @@ export function AppDrawer() {
         component={ServicesScreen}
         options={{
           drawerLabel: 'Serviços',
-          drawerIcon: ({focused}) => (
-            <Icon
-              name="wrench"
-              size={20}
-              color={focused ? 'gray600' : 'gray400'}
-            />
-          ),
+          drawerIcon: ({focused}) =>
+            drawerIcon({focused: focused, iconName: 'wrench'}),
         }}
       />
     </Drawer.Navigator>
