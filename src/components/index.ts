@@ -8,3 +8,4 @@ export * from './TextInput/TextInput';
 export * from './GreyBox/GreyBox';
 export * from './Container/Container';
 export * from './FormInput/FormInput';
+export * from './Dropdown/Dropdown';

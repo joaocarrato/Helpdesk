@@ -48,7 +48,7 @@ export function AppDrawer() {
         drawerStyle: {
           backgroundColor: colors.gray100,
           paddingHorizontal: 20,
-          width: 348,
+          width: 300,
         },
         drawerLabelStyle: {
           ...textVariants.headingMd,

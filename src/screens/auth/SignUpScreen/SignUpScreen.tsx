@@ -1,18 +1,31 @@
-import React from 'react';
+import React, {useState} from 'react';
 
 import {zodResolver} from '@hookform/resolvers/zod';
 import {useForm} from 'react-hook-form';
 
-import {Button, Container, FormInput, GreyBox, Text} from '@components';
+import {
+  Button,
+  Container,
+  Dropdown,
+  FormInput,
+  GreyBox,
+  Text,
+} from '@components';
 import {AuthStackScreenProps} from '@routes';
 
 import {AuthHeader} from '../components/AuthHeader';
 
 import {SignUpSchemaType, signUpScreenSchema} from './signUpScreenSchema';
 
+const data = [
+  {label: 'Técnico', value: 'technician'},
+  {label: 'Cliente', value: 'Customer'},
+];
+
 export function SignUpScreen({
   navigation,
 }: AuthStackScreenProps<'SignUpScreen'>) {
+  const [value, setValue] = useState<string>('');
   const {control, handleSubmit, formState} = useForm<SignUpSchemaType>({
     resolver: zodResolver(signUpScreenSchema),
     defaultValues: {
@@ -23,9 +36,12 @@ export function SignUpScreen({
     mode: 'onChange',
   });
 
-  function onSubmit(data: SignUpSchemaType) {
-    console.log(data);
+  function onSubmit(ac: SignUpSchemaType) {
+    console.log(ac);
   }
+
+  const isDisabled =
+    !formState.isValid || formState.isLoading || value.length === 0;
 
   return (
     <Container>
@@ -65,9 +81,19 @@ export function SignUpScreen({
           boxProps={{mb: 's32'}}
         />
 
+        <Dropdown
+          data={data}
+          labelField={'label'}
+          valueField={'value'}
+          onChange={selectedCategory => setValue(selectedCategory.value)}
+          label="função"
+          placeholder="Selecione uma função"
+        />
+
         <Button
+          mt="s16"
           title="Cadastrar"
-          disabled={!formState.isValid}
+          disabled={isDisabled}
           loading={formState.isLoading}
           onPress={handleSubmit(onSubmit)}
         />
