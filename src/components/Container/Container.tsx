@@ -3,7 +3,7 @@ import {Dimensions, ImageBackground, StyleProp, ViewStyle} from 'react-native';
 
 import {imageUtils} from '@utils';
 
-import {Screen, ScrollViewBox, ScrollViewBoxProps} from '@components';
+import {Box, Screen, ScrollViewBox, ScrollViewBoxProps} from '@components';
 import {useAppSafeArea} from '@hooks';
 
 import {ScreenHeader} from '../Screen/components/ScreenHeader';
@@ -14,15 +14,22 @@ type Props = {
   children: React.ReactNode;
   scrollable?: boolean;
   canGoBack?: boolean;
+  overrideColor?: boolean;
 };
 
-export function Container({children, canGoBack, scrollable = false}: Props) {
+export function Container({
+  children,
+  overrideColor,
+  canGoBack,
+  scrollable = false,
+}: Props) {
   const {top} = useAppSafeArea();
   return (
     <Screen>
       <ImageBackground
         source={imageUtils.imageBackground}
-        style={[$imageStyle, {paddingTop: top}]}>
+        style={[$imageStyle, {paddingTop: overrideColor ? undefined : top}]}>
+        {overrideColor && <Box style={$imageStyle} backgroundColor="gray100" />}
         <ScrollViewBox {...$containerStyle} scrollEnabled={scrollable}>
           <ScreenHeader canGoBack={canGoBack} />
           {children}
