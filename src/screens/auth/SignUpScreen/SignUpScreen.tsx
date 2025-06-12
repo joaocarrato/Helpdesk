@@ -78,7 +78,7 @@ export function SignUpScreen({
           placeholder="Digite sua senha"
           helperText="Mínimo de 6 dígitos"
           secureTextEntry
-          boxProps={{mb: 's32'}}
+          boxProps={{mb: 's16'}}
         />
 
         <Dropdown
@@ -91,7 +91,7 @@ export function SignUpScreen({
         />
 
         <Button
-          mt="s16"
+          mt="s32"
           title="Cadastrar"
           disabled={isDisabled}
           loading={formState.isLoading}
