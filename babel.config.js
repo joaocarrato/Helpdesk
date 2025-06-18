@@ -14,6 +14,7 @@ module.exports = {
           '@domain': './src/domain',
           '@brand': './src/brand',
           '@api': './src/api',
+          '@lib': './src/lib',
           '@types': './src/types',
           '@utils': './src/utils',
           '@infra': './src/infra',
