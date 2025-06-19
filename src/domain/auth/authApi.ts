@@ -14,9 +14,16 @@ async function signUp({email, password, fullName, role}: AuthAPI) {
     },
   });
 
-  return {
-    data,
-  };
+  return data;
 }
 
-export const authApi = {signUp};
+async function signIn({email, password}: {email: string; password: string}) {
+  const {data} = await supabase.auth.signInWithPassword({
+    email,
+    password,
+  });
+
+  return data;
+}
+
+export const authApi = {signUp, signIn};

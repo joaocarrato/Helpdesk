@@ -1,7 +1,7 @@
 import React from 'react';
 
+import {useAuthSignUp} from '@domain';
 import {zodResolver} from '@hookform/resolvers/zod';
-import {supabaseService} from '@lib';
 import {useForm} from 'react-hook-form';
 
 import {Button, Container, FormInput, GreyBox, Text} from '@components';
@@ -24,18 +24,14 @@ export function SignUpScreen({
     mode: 'onChange',
   });
 
+  const {signUp} = useAuthSignUp();
+
   function onSubmit(ac: SignUpSchemaType) {
-    try {
-      supabaseService.signUp({
-        email: ac.email,
-        fullName: ac.name,
-        password: ac.password,
-      });
-    } catch (error) {
-      throw error;
-    } finally {
-      navigation.goBack();
-    }
+    signUp({
+      email: ac.email,
+      fullName: ac.name,
+      password: ac.password,
+    });
   }
 
   const isDisabled = !formState.isValid || formState.isLoading;

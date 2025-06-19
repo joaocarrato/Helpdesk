@@ -1,7 +1,7 @@
 import React from 'react';
 
+import {useAuthSignIn} from '@domain';
 import {zodResolver} from '@hookform/resolvers/zod';
-import {supabaseService} from '@lib';
 import {useForm} from 'react-hook-form';
 
 import {Button, GreyBox, Text, Container, FormInput} from '@components';
@@ -21,8 +21,10 @@ export function LoginScreen({navigation}: AuthStackScreenProps<'LoginScreen'>) {
     mode: 'onChange',
   });
 
+  const {signIn} = useAuthSignIn();
+
   function onSubmit(data: LoginSchemaType) {
-    supabaseService.signIn({
+    signIn({
       email: data.email,
       password: data.password,
     });
