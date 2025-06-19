@@ -1,6 +1,7 @@
 import React from 'react';
 
 import {zodResolver} from '@hookform/resolvers/zod';
+import {supabaseService} from '@lib';
 import {useForm} from 'react-hook-form';
 
 import {Button, GreyBox, Text, Container, FormInput} from '@components';
@@ -21,7 +22,10 @@ export function LoginScreen({navigation}: AuthStackScreenProps<'LoginScreen'>) {
   });
 
   function onSubmit(data: LoginSchemaType) {
-    console.log(data);
+    supabaseService.signIn({
+      email: data.email,
+      password: data.password,
+    });
   }
 
   function navigateToSignUpScreen() {
@@ -43,6 +47,7 @@ export function LoginScreen({navigation}: AuthStackScreenProps<'LoginScreen'>) {
           name="email"
           label="e-mail"
           placeholder="exemplo@mail.com"
+          autoCapitalize="none"
           boxProps={{mb: 's16'}}
         />
 

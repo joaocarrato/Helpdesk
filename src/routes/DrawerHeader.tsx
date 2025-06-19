@@ -1,6 +1,7 @@
 import React from 'react';
 
 import {LogoIconLight} from '@brand';
+import {supabaseService} from '@lib';
 import {useDrawerStatus} from '@react-navigation/drawer';
 import {DrawerActions, useNavigation} from '@react-navigation/native';
 
@@ -18,19 +19,24 @@ export function DrawerHeader() {
   const {top} = useAppSafeArea();
   const navigation = useNavigation();
   const isDrawerOpen = useDrawerStatus() === 'open';
+
+  function signOut() {
+    supabaseService.signOut();
+  }
   return (
     <Box style={{paddingTop: top}} {...$headerStyle}>
       <LogoDrawerHeader
         onPress={() => navigation.dispatch(DrawerActions.toggleDrawer())}
         isDrawerOpen={isDrawerOpen}
       />
-      <Box
+      <TouchableOpacityBox
         height={40}
         width={40}
         borderRadius="s35"
         justifyContent="center"
         alignItems="center"
         backgroundColor="blueBase"
+        onPress={signOut}
       />
     </Box>
   );

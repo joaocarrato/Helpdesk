@@ -25,11 +25,17 @@ export function SignUpScreen({
   });
 
   function onSubmit(ac: SignUpSchemaType) {
-    supabaseService.signUp({
-      email: ac.email,
-      fullName: ac.name,
-      password: ac.password,
-    });
+    try {
+      supabaseService.signUp({
+        email: ac.email,
+        fullName: ac.name,
+        password: ac.password,
+      });
+    } catch (error) {
+      throw error;
+    } finally {
+      navigation.goBack();
+    }
   }
 
   const isDisabled = !formState.isValid || formState.isLoading;
